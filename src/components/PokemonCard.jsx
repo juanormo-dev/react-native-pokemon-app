@@ -10,9 +10,7 @@ import {
 } from "react-native";
 
 const PokemonCard = ({ pokemon }) => {
-  const goToPokemon = () => {
-    console.log(`Vamos a ${pokemon.name}`);
-  };
+  const goToPokemon = () => {};
 
   const pokemonColor = getColorByType(pokemon.type);
   const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles };
