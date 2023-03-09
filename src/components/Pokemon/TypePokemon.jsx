@@ -23,7 +23,7 @@ const TypePokemon = ({ pokemon }) => {
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: 45,
+    marginTop: 50,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
