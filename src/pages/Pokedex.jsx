@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import { getPokemonsApi, getPokemonByIdApi } from "../api/service";
 import PokemonList from "../components/PokemonList";
 
@@ -29,6 +29,7 @@ const Pokedex = () => {
           id: pokemonDetails.id,
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
+          allTypes: pokemonDetails.types,
           order: pokemonDetails.order,
           image: pokemonDetails.sprites.other["official-artwork"].front_default,
         });

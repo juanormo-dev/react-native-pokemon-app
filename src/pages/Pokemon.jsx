@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import HeaderPokemon from "../components/Pokemon/HeaderPokemon";
+import TypePokemon from "../components/Pokemon/TypePokemon";
 
 const Pokemon = ({ route, navigation }) => {
   const { params } = route;
@@ -16,6 +17,7 @@ const Pokemon = ({ route, navigation }) => {
   return (
     <ScrollView>
       <HeaderPokemon pokemon={pokemon} />
+      <TypePokemon pokemon={pokemon} />
     </ScrollView>
   );
 };
