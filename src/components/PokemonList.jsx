@@ -1,5 +1,11 @@
 import React from "react";
-import { View, FlatList, StyleSheet, ActivityIndicator } from "react-native";
+import {
+  SafeAreaView,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+  Platform,
+} from "react-native";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
@@ -8,7 +14,7 @@ const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
   };
 
   return (
-    <View>
+    <SafeAreaView>
       <FlatList
         data={pokemons}
         numColumns={2}
@@ -26,7 +32,7 @@ const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
           />
         }
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -34,10 +40,11 @@ const styles = StyleSheet.create({
   flatListPokemons: {
     paddingHorizontal: 10,
     paddingTop: 10,
+    marginTop: Platform.OS === "android" ? 30 : 0,
   },
   spinner: {
     marginTop: 20,
-    marginBottom: 60,
+    marginBottom: Platform.OS === "android" ? 90 : 60,
   },
 });
 
