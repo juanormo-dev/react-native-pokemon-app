@@ -1,8 +1,8 @@
-import { PATH } from "../utils/constants";
+import { API_URL } from "@env";
 
 export const getPokemonsApi = async () => {
   try {
-    const url = `${PATH}/pokemon?limit=20&offset=0`;
+    const url = `${API_URL}/pokemon?limit=20&offset=0`;
     const response = await fetch(url);
     const result = response.json();
     return result;

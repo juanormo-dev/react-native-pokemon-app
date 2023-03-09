@@ -1,5 +1,3 @@
-export const PATH = process.env.API_URL;
-
 export const POKEMON_TYPE_COLORS = {
   normal: "#A8A878",
   fighting: "#C03028",
