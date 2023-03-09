@@ -8,9 +8,13 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 const PokemonCard = ({ pokemon }) => {
-  const goToPokemon = () => {};
+  const navigation = useNavigation();
+
+  const goToPokemon = () => {
+    navigation.navigate("Pokemon", { pokemon });
+  };
 
   const pokemonColor = getColorByType(pokemon.type);
   const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles };
