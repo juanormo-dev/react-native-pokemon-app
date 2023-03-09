@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Text, SafeAreaView } from "react-native";
+import { Text, ScrollView } from "react-native";
+import HeaderPokemon from "../components/Pokemon/HeaderPokemon";
 
 const Pokemon = ({ route, navigation }) => {
   const { params } = route;
@@ -13,9 +14,9 @@ const Pokemon = ({ route, navigation }) => {
   if (!pokemon) return null;
 
   return (
-    <SafeAreaView>
-      <Text>{pokemon.name}</Text>
-    </SafeAreaView>
+    <ScrollView>
+      <HeaderPokemon pokemon={pokemon} />
+    </ScrollView>
   );
 };
 
