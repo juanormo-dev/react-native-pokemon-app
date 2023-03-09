@@ -22,7 +22,7 @@ const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
         keyExtractor={(pokemon) => String(pokemon.id)}
         renderItem={({ item }) => <PokemonCard pokemon={item} />}
         contentContainerStyle={styles.flatListPokemons}
-        onEndReached={!isLoading && isNext && loadMore}
+        onEndReached={!isLoading && loadMore}
         onEndReachedThreshold={0.1}
         ListFooterComponent={
           <ActivityIndicator

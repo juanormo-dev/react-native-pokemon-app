@@ -13,7 +13,7 @@ const PokemonCard = ({ pokemon }) => {
   const navigation = useNavigation();
 
   const goToPokemon = () => {
-    navigation.navigate("Pokemon", { pokemon });
+    navigation.navigate("Pokemon", { data: pokemon });
   };
 
   const pokemonColor = getColorByType(pokemon.type);

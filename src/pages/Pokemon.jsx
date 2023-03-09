@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Text, SafeAreaView } from "react-native";
 
 const Pokemon = ({ route, navigation }) => {
-  const { pokemon } = route.params;
+  const { params } = route;
 
-  console.log(pokemon);
+  const [pokemon, setPokemon] = useState();
+
+  useEffect(() => {
+    setPokemon(params.data);
+  }, [params]);
+
+  if (!pokemon) return null;
 
   return (
     <SafeAreaView>
-      <Text>Estamos en un Pokemon</Text>
+      <Text>{pokemon.name}</Text>
     </SafeAreaView>
   );
 };
