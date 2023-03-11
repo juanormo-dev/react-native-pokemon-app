@@ -1,4 +1,7 @@
-import React from "react";
+import { useFormik } from "formik";
+import { user, userDetail } from "../../utils/db/user";
+import * as Yup from "yup";
+import React, { useState } from "react";
 import {
   Button,
   Keyboard,
@@ -7,15 +10,23 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 
 const LoginForm = () => {
+  const [error, setError] = useState("");
+
   const formik = useFormik({
     initialValues: initialForm(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: (data) => {
-      console.log(data);
+      setError("");
+      const { username, password } = data;
+
+      if (username !== user.username || password !== user.password) {
+        setError("Usuario o contraseña incorrectos!");
+        return;
+      }
+
+      console.log(userDetail);
     },
   });
 
@@ -44,6 +55,8 @@ const LoginForm = () => {
       />
       <Text style={styles.error}>{formik.errors.password}</Text>
       <Button title="Ingresar" onPress={formik.handleSubmit} />
+
+      <Text style={styles.error}>{error}</Text>
     </View>
   );
 };
