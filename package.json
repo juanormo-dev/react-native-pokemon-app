@@ -18,6 +18,7 @@
     "@react-navigation/stack": "^6.3.16",
     "expo": "~48.0.6",
     "expo-status-bar": "~1.4.4",
+    "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-dom": "^18.3.0-next-fecc288b7-20221025",
@@ -26,7 +27,8 @@
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.20.0",
     "react-native-tab-view": "^3.5.1",
-    "react-native-web": "^0.18.12"
+    "react-native-web": "^0.18.12",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
