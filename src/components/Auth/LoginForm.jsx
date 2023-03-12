@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { user, userDetail } from "../../utils/db/user";
 import * as Yup from "yup";
 import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 import {
   Button,
   Keyboard,
@@ -13,6 +14,8 @@ import {
 
 const LoginForm = () => {
   const [error, setError] = useState("");
+  const { login, usernameAuth } = useAuth();
+  console.log(usernameAuth);
 
   const formik = useFormik({
     initialValues: initialForm(),
@@ -26,7 +29,7 @@ const LoginForm = () => {
         return;
       }
 
-      console.log(userDetail);
+      login(userDetail);
     },
   });
 
