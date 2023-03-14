@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import PokemonCard from "./PokemonCard";
 
-const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
+const PokemonList = ({ pokemons, loadPokemons, isLoading }) => {
   const loadMore = () => {
     loadPokemons();
   };
@@ -25,11 +25,13 @@ const PokemonList = ({ pokemons, loadPokemons, isNext, isLoading }) => {
         onEndReached={!isLoading && loadMore}
         onEndReachedThreshold={0.1}
         ListFooterComponent={
-          <ActivityIndicator
-            size="large"
-            style={styles.spinner}
-            color="#AEAEAE"
-          />
+          !isLoading && (
+            <ActivityIndicator
+              size="large"
+              style={styles.spinner}
+              color="#AEAEAE"
+            />
+          )
         }
       />
     </SafeAreaView>

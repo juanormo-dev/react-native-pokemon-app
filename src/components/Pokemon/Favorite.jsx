@@ -38,7 +38,6 @@ const Favorite = ({ id }) => {
       try {
         if (id) {
           const response = await isPokemonFavoriteApi(id);
-          console.log(`Favorito ${id}:`, response);
           setIsFavorite(response);
         }
       } catch (error) {
