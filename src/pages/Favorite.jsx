@@ -8,7 +8,7 @@ const Favorite = () => {
   useEffect(() => {
     (async () => {
       const response = getPokemonFavoriteApi();
-      console.log(response);
+      console.log(`Page Fav`, response);
     })();
   }, []);
 
