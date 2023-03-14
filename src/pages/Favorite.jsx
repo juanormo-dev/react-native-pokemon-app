@@ -5,6 +5,7 @@ import useAuth from "../hooks/useAuth";
 import { getPokemonFavoriteApi } from "../api/favorite";
 import { getPokeminDetailsApi } from "../api/service";
 import PokemonList from "../components/PokemonList";
+import Nologged from "../components/Nologged";
 
 const Favorite = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -50,7 +51,7 @@ const Favorite = () => {
         </View>
       ) : (
         <View>
-          <Text>No logeado</Text>
+          <Nologged />
         </View>
       )}
     </SafeAreaView>
