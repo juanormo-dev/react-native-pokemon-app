@@ -14,8 +14,7 @@ import {
 
 const LoginForm = () => {
   const [error, setError] = useState("");
-  const { login, usernameAuth } = useAuth();
-  console.log(usernameAuth);
+  const { login } = useAuth();
 
   const formik = useFormik({
     initialValues: initialForm(),
@@ -29,6 +28,7 @@ const LoginForm = () => {
         return;
       }
 
+      console.log(`LOGIN OK: `, userDetail);
       login(userDetail);
     },
   });
