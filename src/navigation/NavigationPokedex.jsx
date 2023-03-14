@@ -12,11 +12,7 @@ const NavigationPokedex = () => {
         component={Pokedex}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="Pokemon"
-        component={Pokemon}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="Pokemon" component={Pokemon} />
     </Stack.Navigator>
   );
 };

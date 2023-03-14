@@ -1,17 +1,37 @@
-import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import HeaderPokemon from "../components/Pokemon/HeaderPokemon";
-import TypePokemon from "../components/Pokemon/TypePokemon";
+import Ionicons from "@expo/vector-icons/FontAwesome5";
+import React, { useEffect, useState } from "react";
 import Statistics from "../components/Pokemon/Statistics";
+import TypePokemon from "../components/Pokemon/TypePokemon";
+import Favorite from "../components/Pokemon/Favorite";
+import useAuth from "../hooks/useAuth";
 
-const Pokemon = ({ route }) => {
+const Pokemon = ({ route, navigation }) => {
   const { params } = route;
 
   const [pokemon, setPokemon] = useState();
 
+  const { auth } = useAuth();
+
   useEffect(() => {
     setPokemon(params.data);
-  }, [params]);
+
+    navigation.setOptions({
+      title: "",
+      headerTransparent: true,
+      headerRight: () => auth && <Favorite id={pokemon?.id} />,
+      headerLeft: () => (
+        <Ionicons
+          name="arrow-left"
+          color="#17202A"
+          style={{ marginLeft: 20 }}
+          size={25}
+          onPress={navigation.goBack}
+        ></Ionicons>
+      ),
+    });
+  }, [params, navigation, pokemon]);
 
   if (!pokemon) return null;
 

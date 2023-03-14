@@ -28,7 +28,6 @@ const LoginForm = () => {
         return;
       }
 
-      console.log(`LOGIN OK: `, userDetail);
       login(userDetail);
     },
   });
