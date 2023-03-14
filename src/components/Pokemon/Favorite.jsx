@@ -4,6 +4,7 @@ import {
   addPokemonFavoriteApi,
   getPokemonFavoriteApi,
   isPokemonFavoriteApi,
+  removePokemonFavoriteApi,
 } from "../../api/favorite";
 
 const Favorite = ({ id }) => {
@@ -23,11 +24,14 @@ const Favorite = ({ id }) => {
     }
   };
 
-  const getFavortires = async () => {
-    const r = await getPokemonFavoriteApi(id);
+  const removeFavorite = async () => {
+    try {
+      await removePokemonFavoriteApi(id);
+      onReloadCheck();
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  const removeFavorite = () => {};
 
   useEffect(() => {
     (async () => {
