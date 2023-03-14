@@ -8,9 +8,19 @@ import {
 
 const Favorite = ({ id }) => {
   const [isFavorite, setIsFavorite] = useState(null);
+  const [reloadCheck, setReloadCheck] = useState(false);
+
+  const onReloadCheck = () => {
+    setReloadCheck(!reloadCheck);
+  };
 
   const addFavortire = async () => {
-    await addPokemonFavoriteApi(id);
+    try {
+      await addPokemonFavoriteApi(id);
+      onReloadCheck();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getFavortires = async () => {
@@ -31,7 +41,7 @@ const Favorite = ({ id }) => {
         setIsFavorite(false);
       }
     })();
-  }, [id]);
+  }, [id, onReloadCheck]);
 
   return (
     <>
