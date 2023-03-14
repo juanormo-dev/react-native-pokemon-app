@@ -5,12 +5,11 @@ import { getPokemonFavoriteApi } from "../api/favorite";
 const Favorite = () => {
   const [favorites, setFavorites] = useState(null);
 
-  useEffect(() => {
-    (async () => {
-      const response = getPokemonFavoriteApi();
-      console.log(`Page Fav`, response);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = getPokemonFavoriteApi();
+  //   })();
+  // }, []);
 
   return (
     <SafeAreaView>
