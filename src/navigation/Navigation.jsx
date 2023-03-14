@@ -1,11 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/FontAwesome5";
 import Account from "../pages/Account";
-import Favorite from "../pages/Favorite";
+
 import Pokedex from "../pages/Pokedex";
 import React from "react";
 import { Image } from "react-native";
 import NavigationPokedex from "./NavigationPokedex";
+import NavigationFavorite from "./NavigationFavorite";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,11 +14,12 @@ const Navigation = () => {
   return (
     <Tab.Navigator initialRouteName="Pokedex">
       <Tab.Screen
-        name="Favorite"
-        component={Favorite}
+        name="Favorite1"
+        component={NavigationFavorite}
         options={{
           headerTitle: "Favoritos",
           tabBarLabel: "Favoritos",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart" color={color} size={size}></Ionicons>
           ),

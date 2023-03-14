@@ -16,8 +16,6 @@ const Favorite = () => {
       if (auth) {
         (async () => {
           const response = await getPokemonFavoriteApi();
-          console.log(`All Fav Pokemons: `, response);
-
           const pokemonsArray = [];
           for await (const id of response) {
             const pokemonDetails = await getPokeminDetailsApi(id);

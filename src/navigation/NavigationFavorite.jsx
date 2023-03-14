@@ -5,18 +5,17 @@ import Pokemon from "../pages/Pokemon";
 
 const Stack = createStackNavigator();
 
-const NavigationPokedex = () => {
+const NavigationFavorite = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Pokedex"
-        component={Pokedex}
-        options={{ headerShown: false }}
+        name="Favorite"
+        component={Favorite}
+        options={{ title: "Mis favoritos" }}
       />
-      <Stack.Screen name="Favorite" component={Favorite} />
       <Stack.Screen name="Pokemon" component={Pokemon} />
     </Stack.Navigator>
   );
 };
 
-export default NavigationPokedex;
+export default NavigationFavorite;
